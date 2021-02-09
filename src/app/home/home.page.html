@@ -1,20 +1,136 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-header>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+        <ion-title>
+            SGNI
+        </ion-title>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        <ion-buttons slot="start">
+            <ion-menu-button menu="main-menu">
+                <ion-icon name="apps"></ion-icon>
+            </ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+
+    <ion-searchbar [animated]="true" placeholder="Search location, course, institute"></ion-searchbar>
+
+
+</ion-header>
+<ion-content class="ion-padding">
+    <div class="category-slider ">
+
+        <ion-slides
+                [options]="{ slidesPerView : 'auto', zoom : false, gradCursor : true, loop : true, scroll:'infinite'}">
+
+            <ion-slide>
+                <ion-col>
+                    <h4>Amritsar</h4>
+                    <img src="../../assets/img_locations/jalandhar.jpg" height="281" width="500"/>
+                </ion-col>
+            </ion-slide>
+
+
+            <ion-slide>
+                <ion-col>
+                    <h4>jalandhar</h4>
+                    <img src="../../assets/img_locations/bathinda.jpg" height="281" width="500"/>
+                </ion-col>
+            </ion-slide>
+
+
+            <ion-slide>
+                <ion-col>
+                    <h4>ludhiana</h4>
+                    <img src="../../assets/img_locations/jalandhar.jpg" height="281" width="500"/>
+                </ion-col>
+            </ion-slide>
+
+
+            <ion-slide>
+                <ion-col>
+                    <h4>batala</h4>
+                    <img src="../../assets/img_locations/jalandhar.jpg" height="281" width="500"/>
+                </ion-col>
+            </ion-slide>
+
+
+            <ion-slide>
+                <ion-col>
+                    <h4>kanal</h4>
+                    <img src="../../assets/img_locations/bathinda.jpg" height="281" width="500"/>
+                </ion-col>
+            </ion-slide>
+
+
+            <ion-slide>
+                <ion-col>
+                    <h4>ghazipur</h4>
+                    <img src="../../assets/img_locations/jalandhar.jpg" height="281" width="500"/>
+                </ion-col>
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+
+    <div class="brand-ads">
+        <ion-slide  class="ion-no-padding">
+            <ion-card class="ion-no-padding">
+                <img src="../../assets/bannertwo.png"/>
+            </ion-card>
+        </ion-slide>
+    </div>
+
+
+    <div class="top-card-swiper">
+        <div class="headings">
+            <h6>Recommended institutes for you</h6>
+
+            <ion-slides [options]="option" class="ion-margin-top" *ngIf="result.length">
+
+                <ion-slide *ngFor="let fd of result;let i=index" class="ion-no-padding">
+                    <ion-card class="ion-no-padding">
+                        <div class="rating-div">
+                            <ion-label class="rating-label rounded ">4.2
+                                <ion-icon name="star"></ion-icon>
+                            </ion-label>
+                        </div>
+
+                        <ion-title>
+                            <p class="ion-text-wrap">{{fd.name}}</p></ion-title>
+                        <ion-title>
+                            <div class="ion-text-wrap">{{fd.address2}}</div>
+                            {{ }}
+                        </ion-title>
+
+
+
+                        <div class="bottom">
+                            <ion-buttons class="grey-button">
+                                <ion-button class="ion-text-wrap rounded" (click)="presentModal()">Enquire Now</ion-button>
+                                <ion-button class="ion-text-wrap rounded">Know More</ion-button>
+                            </ion-buttons>
+                        </div>
+                    </ion-card>
+                </ion-slide>
+            </ion-slides>
+
+
+        </div>
+
+    </div>
+
+    <div *ngFor="let call of bawa">
+        <ion-title>
+            <div class="ion-text-wrap">{{bawa[0].coursename}}</div>
+        </ion-title>
+    </div>
+
+
+    <div class="brand-ads">
+        <ion-slide  class="ion-no-padding">
+            <ion-card class="ion-no-padding">
+                <img src="../../assets/testt.jpg"/>
+            </ion-card>
+        </ion-slide>
+    </div>
+
 </ion-content>
