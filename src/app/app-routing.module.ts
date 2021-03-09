@@ -4,12 +4,16 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'splash',
     pathMatch: 'full'
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule)
   },
   {
     path: 'login',
@@ -28,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cities/cities.module').then( m => m.CitiesPageModule)
   },
   {
-    path: 'courses/:id',
+    path: 'courses/:id/:location',
     loadChildren: () => import('./pages/courses/courses.module').then( m => m.CoursesPageModule)
   },
   {
@@ -54,6 +58,26 @@ const routes: Routes = [
   {
     path: 'otpmodal',
     loadChildren: () => import('./otpmodal/otpmodal.module').then( m => m.OtpmodalPageModule)
+  },
+  {
+    path: 'orderdetails/:coursename/:institutename/:instituteaddress/:fees/:rollno',
+    loadChildren: () => import('./pages/orderdetails/orderdetails.module').then( m => m.OrderdetailsPageModule)
+  },
+  {
+    path: 'searchresult',
+    loadChildren: () => import('./pages/searchresult/searchresult.module').then( m => m.SearchresultPageModule)
+  },
+  {
+    path: 'nointernet',
+    loadChildren: () => import('./pages/nointernet/nointernet.module').then( m => m.NointernetPageModule)
+  },
+  {
+    path: 'splash',
+    loadChildren: () => import('./pages/splash/splash.module').then( m => m.SplashPageModule)
+  },
+  {
+    path: 'myprofile',
+    loadChildren: () => import('./pages/myprofile/myprofile.module').then( m => m.MyprofilePageModule)
   },
 ];
 

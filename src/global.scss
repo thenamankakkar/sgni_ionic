@@ -27,15 +27,15 @@
 
 .half-modal .modal-wrapper
 {
-  height : 50%;
-  top:60%;
+
+
   position:absolute;
   display:block;
 }
 
 .my-custom-class .modal-wrapper {
-  height: 50%;
-  top:30%;
+  height: 100%;
+
   position:absolute;
   display:block;
 }
@@ -71,4 +71,11 @@
   position: relative;
   height: 50px;
   margin-bottom: 15px;
+}
+ion-searchbar {
+  .searchbar-input-container {
+    input{
+      font-size: 12px !important;
+    }
+  }
 }

@@ -1,54 +1,71 @@
 <ion-app>
-  <ion-menu menuId="main-menu" contentId="main">
-    <ion-content>
-      <div class="menu-header-bg"></div>
+    <ion-menu menuId="main-menu" contentId="main">
+        <ion-content>
+            <div class="menu-header-bg"></div>
 
-      <div class="header-content">
+            <div class="header-content swing">
+                <img src="../assets/icon/sgnilogo.png"/>
+            </div>
 
-        <img src="../assets/icon/sgnilogo.png"/>
-
-        <ion-label>
-          <h2>Dr.Naman Kakkar</h2>
-          <p>Dermathalogist</p>
-        </ion-label>
-      </div>
-
-      <div class="action-button">
-        <ion-button>
-          <ion-icon slot="start" name="add"></ion-icon>Add Branch
-        </ion-button>
-      </div>
-
-      <ion-list class="menu-items" lines="none">
-        <ion-item>
-          <ion-icon name="pie-chart-outline"></ion-icon>Dashboard
-        </ion-item>
-
-        <ion-item>
-          <ion-icon name="browsers-outline"></ion-icon>Post Sessions
-        </ion-item>
+            <div class="action-button">
+                <ion-button>
+                    <ion-icon slot="start" name="add"></ion-icon>
+                    My Code : {{this.mycode}}
+                </ion-button>
+            </div>
 
 
-        <ion-item class="active">
-          <ion-icon name="flash"></ion-icon>Live session
-        </ion-item>
+            <ion-list class="menu-items" lines="none">
+                <ion-item class="active">
+                    <ion-icon name="home-outline"></ion-icon>
+                    Home
+                </ion-item>
 
 
-        <ion-item>
-          <ion-icon name="chatbubble-ellipses-outline"></ion-icon>Messages
-        </ion-item>
+                <ion-item routerLink="/myprofile">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                    My Profile
+                </ion-item>
 
 
-        <ion-item>
-          <ion-icon name="heart-outline"></ion-icon>Locum library
-        </ion-item>
+                <ion-item (click)="fb()">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    Facebook
+                </ion-item>
 
-        <ion-item>
-          <ion-icon name="exit-outline"></ion-icon>Sign out
-        </ion-item>
+                <ion-item (click)="instagram()">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                    Instagram
+                </ion-item>
 
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-  <ion-router-outlet id="main"></ion-router-outlet>
+                <ion-item (click)="linkedin()">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                    Linkedin
+                </ion-item>
+
+                <ion-item (click)="twitter()">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                    Twitter
+                </ion-item>
+
+
+                <ion-item (click)="terms()">
+                    <ion-icon name="newspaper-outline"></ion-icon>
+                    Terms
+                </ion-item>
+
+                <ion-item (click)="shareapp()">
+                    <ion-icon name="share-social-outline"></ion-icon>
+                    Share App
+                </ion-item>
+
+                <ion-item (click)="signout()">
+                    <ion-icon name="exit-outline"></ion-icon>
+                    Sign out
+                </ion-item>
+
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

@@ -1,136 +1,438 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>
-            SGNI
+        <ion-title class="scale-down-center">
+            <img src="../../assets/t_sgni.png" width="100"/>
         </ion-title>
 
         <ion-buttons slot="start">
             <ion-menu-button menu="main-menu">
-                <ion-icon name="apps"></ion-icon>
+                <ion-icon name="menu"></ion-icon>
             </ion-menu-button>
         </ion-buttons>
+
     </ion-toolbar>
 
-    <ion-searchbar [animated]="true" placeholder="Search location, course, institute"></ion-searchbar>
+    <ion-item class="text-wrap ion-no-padding">
+
+        <ion-searchbar class="float-left " (search)="yourSearchFunction($event.target.value)" [animated]="true"
+                       placeholder="Search location, course, institute"></ion-searchbar>
+        <div id="label" class="ion-no-padding">
+            <label>
+                <ion-icon name="locate-sharp"></ion-icon>
+                <span id="nearby">Nearby</span>
+            </label>
+        </div>
+
+
+        <!--        <div class="nearby float-right ion-no-padding">
+                    <ion-slide>
+                        <ion-col>
+                            <ion-icon name="locate-outline"></ion-icon>
+                            <span>Nearby</span>
+                        </ion-col>
+                    </ion-slide>
+                </div>-->
+    </ion-item>
 
 
 </ion-header>
-<ion-content class="ion-padding">
-    <div class="category-slider ">
+<ion-content class="ion-padding tracking-in-expand">
+
+    <div class="category-slider text-wrap">
 
         <ion-slides
-                [options]="{ slidesPerView : 'auto', zoom : false, gradCursor : true, loop : true, scroll:'infinite'}">
+                [options]="{ slidesPerView : 'auto', zoom : false, gradCursor : true, loop : false, scroll:'infinite'}"
+                class="jasmine-banner pager">
 
-            <ion-slide>
+            <ion-slide [routerLink]="['/cities', 6]">
                 <ion-col>
+                    <img src="../../assets/img_locations/amritsar.jpg" height="281" width="500"/>
                     <h4>Amritsar</h4>
+                </ion-col>
+            </ion-slide>
+
+
+            <ion-slide [routerLink]="['/cities', 32]">
+                <ion-col>
+                    <h4>Jalandhar</h4>
                     <img src="../../assets/img_locations/jalandhar.jpg" height="281" width="500"/>
                 </ion-col>
             </ion-slide>
 
 
-            <ion-slide>
+            <ion-slide [routerLink]="['/cities', 34]">
                 <ion-col>
-                    <h4>jalandhar</h4>
+                    <h4>Pathankot</h4>
+                    <img src="../../assets/img_locations/pathankot.jpg" height="281" width="500"/>
+                </ion-col>
+            </ion-slide>
+
+
+            <ion-slide [routerLink]="['/cities', 35]">
+                <ion-col>
+                    <h4>Bathinda</h4>
                     <img src="../../assets/img_locations/bathinda.jpg" height="281" width="500"/>
                 </ion-col>
             </ion-slide>
 
 
-            <ion-slide>
+            <ion-slide [routerLink]="['/location']">
                 <ion-col>
-                    <h4>ludhiana</h4>
-                    <img src="../../assets/img_locations/jalandhar.jpg" height="281" width="500"/>
+                    <h4>More ></h4>
+                    <img src="../../assets/img_locations/more.png" height="281" width="500"/>
+
                 </ion-col>
             </ion-slide>
 
 
-            <ion-slide>
-                <ion-col>
-                    <h4>batala</h4>
-                    <img src="../../assets/img_locations/jalandhar.jpg" height="281" width="500"/>
-                </ion-col>
-            </ion-slide>
-
-
-            <ion-slide>
-                <ion-col>
-                    <h4>kanal</h4>
-                    <img src="../../assets/img_locations/bathinda.jpg" height="281" width="500"/>
-                </ion-col>
-            </ion-slide>
-
-
-            <ion-slide>
-                <ion-col>
-                    <h4>ghazipur</h4>
-                    <img src="../../assets/img_locations/jalandhar.jpg" height="281" width="500"/>
-                </ion-col>
-            </ion-slide>
         </ion-slides>
     </div>
 
-
-    <div class="brand-ads">
-        <ion-slide  class="ion-no-padding">
+    <!--main banner-->
+    <div class="brand-ads flip-horizontal-top">
+        <ion-slide class="ion-no-padding">
             <ion-card class="ion-no-padding">
-                <img src="../../assets/bannertwo.png"/>
+                <img src="../../assets/banners/one.png" height="310" width="1210"/>
+
             </ion-card>
         </ion-slide>
     </div>
 
 
-    <div class="top-card-swiper">
+    <div class="section-two">
         <div class="headings">
-            <h6>Recommended institutes for you</h6>
+            <h6>Recommended Institutes</h6>
 
             <ion-slides [options]="option" class="ion-margin-top" *ngIf="result.length">
 
                 <ion-slide *ngFor="let fd of result;let i=index" class="ion-no-padding">
-                    <ion-card class="ion-no-padding">
-                        <div class="rating-div">
-                            <ion-label class="rating-label rounded ">4.2
-                                <ion-icon name="star"></ion-icon>
-                            </ion-label>
+                    <ion-card class="flip-horizontal-top">
+
+                        <ion-header>
+                            <ion-title class="ion-padding-top">
+                                <p class="text-wrap  ion-no-padding flip-2-ver-right-fwd">{{fd.name}}</p>
+                            </ion-title>
+
+                            <div class="rating-bar">
+                                <div class="float-left views col-6">
+                                     <span class="watch">
+                                    <ion-icon name="eye"></ion-icon>
+                                         {{fd.Views}}
+                                    </span>
+                                </div>
+
+                                <div class="float-right save  col-6">
+                                    <span class="offer">save up to 10%</span>
+                                </div>
+
+                            </div>
+                        </ion-header>
+
+                        <div class="address">
+
+
+                            <ion-icon name="location"></ion-icon>
+                            {{fd.address2}}
                         </div>
 
-                        <ion-title>
-                            <p class="ion-text-wrap">{{fd.name}}</p></ion-title>
-                        <ion-title>
-                            <div class="ion-text-wrap">{{fd.address2}}</div>
-                            {{ }}
-                        </ion-title>
+                        <div *ngIf="flag == true">
+                            <ng-container *ngFor="let det of coursesDetails[fd.inst_id]; let i = index">
+                                <div *ngIf="i < 3"
+                                     [routerLink]="['/booknow', fd.inst_cid,det.coursename,fd.name,fd.address,fd.inst_id,fd.inst_slug]">
 
+
+                                    <div class="sec-two-course-name">
+                                        <div class="sec-two-course-name-l float-left">
+
+                                            <ion-icon name="book"></ion-icon>&nbsp;{{ det.coursename }}
+                                        </div>
+
+                                        <div class="sec-two-course-name-r float-right">
+                                            <strong>
+                                                &nbsp;{{det.final_fees  | number }}
+                                            </strong>
+                                            <s class="fees">&nbsp;&#8377;{{det.fees | number}}</s>&nbsp;&nbsp;
+                                            <span slot="end" class="badge badge-success"><small><b>BOOK NOW</b></small></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </ng-container>
+                        </div>
 
 
                         <div class="bottom">
-                            <ion-buttons class="grey-button">
-                                <ion-button class="ion-text-wrap rounded" (click)="presentModal()">Enquire Now</ion-button>
-                                <ion-button class="ion-text-wrap rounded">Know More</ion-button>
+                            <ion-buttons class="color-button ">
+                                <ion-button class="col-6 green rounded" (click)="presentModal()">Enquire Now
+                                </ion-button>
+                                <ion-button class="col-6 red rounded"
+                                            [routerLink]="['/knowmore',fd.inst_id,fd.inst_cid,fd.name,fd.address,fd.inst_slug]">
+                                    Know More
+                                </ion-button>
                             </ion-buttons>
                         </div>
                     </ion-card>
                 </ion-slide>
             </ion-slides>
-
-
         </div>
-
-    </div>
-
-    <div *ngFor="let call of bawa">
-        <ion-title>
-            <div class="ion-text-wrap">{{bawa[0].coursename}}</div>
-        </ion-title>
     </div>
 
 
-    <div class="brand-ads">
-        <ion-slide  class="ion-no-padding">
+    <!--banner-->
+    <div class="brand-ads flip-horizontal-top">
+        <ion-slide class="ion-no-padding">
             <ion-card class="ion-no-padding">
-                <img src="../../assets/testt.jpg"/>
+                <img src="../../assets/banners/two.png" height="310" width="1210"/>
             </ion-card>
         </ion-slide>
     </div>
 
+
+    <!--second section-->
+    <div class="section-two">
+        <div class="headings">
+            <h6>Top Ielts Institues</h6>
+
+            <ion-slides [options]="option" class="ion-margin-top" *ngIf="resulttopcourse.length">
+
+                <ion-slide *ngFor="let fd of resulttopcourse;let i=index" class="ion-no-padding">
+                    <ion-card class="flip-horizontal-top">
+
+
+                        <ion-header>
+                            <ion-title class="ion-padding-top">
+                                <p class="text-wrap  ion-no-padding flip-2-ver-right-fwd">{{fd.name}}</p>
+                            </ion-title>
+
+                            <div class="rating-bar">
+                                <div class="float-left views col-6">
+                                     <span class="watch">
+                                    <ion-icon name="eye"></ion-icon>
+                                         {{fd.Views}}
+                                    </span>
+                                </div>
+
+                                <div class="float-right save  col-6">
+                                    <span class="offer">save up to 10%</span>
+                                </div>
+
+                            </div>
+                        </ion-header>
+
+                        <div class="address">
+
+
+                            <ion-icon name="location"></ion-icon>
+                            {{fd.address2}}
+                        </div>
+
+                        <div *ngIf="flag == true">
+                            <ng-container *ngFor="let det of coursesDetails2[fd.inst_id]; let i = index">
+                                <div *ngIf="i < 3"
+                                     [routerLink]="['/booknow', fd.inst_cid,det.coursename,fd.name,fd.address,fd.inst_id,fd.inst_slug]">
+
+
+                                    <div class="sec-two-course-name">
+                                        <div class="sec-two-course-name-l float-left">
+
+                                            <ion-icon name="book"></ion-icon>&nbsp;{{ det.coursename }}
+                                        </div>
+
+                                        <div class="sec-two-course-name-r float-right">
+                                            <strong>
+                                                &nbsp;{{det.final_fees  | number }}
+                                            </strong>
+                                            <s class="fees">&nbsp;&#8377;{{det.fees | number}}</s>&nbsp;&nbsp;
+                                            <span slot="end" class="badge badge-success"><small><b>BOOK NOW</b></small></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </ng-container>
+                        </div>
+
+
+                        <div class="bottom">
+                            <ion-buttons class="color-button ">
+                                <ion-button class="col-6 green rounded" (click)="presentModal()">Enquire Now
+                                </ion-button>
+                                <ion-button class="col-6 red rounded"
+                                            [routerLink]="['/knowmore',fd.inst_id,fd.inst_cid,fd.name,fd.address,fd.inst_slug]">
+                                    Know More
+                                </ion-button>
+                            </ion-buttons>
+                        </div>
+                    </ion-card>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </div>
+
+
+    <!--banner-->
+    <div class="brand-ads  flip-horizontal-top">
+        <ion-slide class="ion-no-padding">
+            <ion-card class="ion-no-padding">
+                <img src="../../assets/banners/three.png" height="310" width="1210"/>
+            </ion-card>
+        </ion-slide>
+    </div>
+
+
+    <!--section three top ielts wala-->
+    <div class="section-two">
+        <div class="headings">
+            <h6>Top PTE Institutes</h6>
+
+            <ion-slides [options]="option" class="ion-margin-top" *ngIf="resulttopcourse2.length">
+
+                <ion-slide *ngFor="let fd of resulttopcourse2;let i=index" class="ion-no-padding">
+                    <ion-card class="flip-horizontal-top">
+
+
+                        <ion-header>
+                            <ion-title class="ion-padding-top">
+                                <p class="text-wrap  ion-no-padding flip-2-ver-right-fwd">{{fd.name}}</p>
+                            </ion-title>
+
+                            <div class="rating-bar">
+                                <div class="float-left views col-6">
+                                     <span class="watch">
+                                    <ion-icon name="eye"></ion-icon>
+                                         {{fd.Views}}
+                                    </span>
+                                </div>
+
+                                <div class="float-right save  col-6">
+                                    <span class="offer">save up to 10%</span>
+                                </div>
+
+                            </div>
+                        </ion-header>
+
+                        <div class="address">
+
+
+                            <ion-icon name="location"></ion-icon>
+                            {{fd.address2}}
+                        </div>
+
+                        <div *ngIf="flag == true">
+                            <ng-container *ngFor="let det of coursesDetails3[fd.inst_id]; let i = index">
+                                <div *ngIf="i < 3"
+                                     [routerLink]="['/booknow', fd.inst_cid,det.coursename,fd.name,fd.address,fd.inst_id,fd.inst_slug]">
+
+
+                                    <div class="sec-two-course-name">
+                                        <div class="sec-two-course-name-l float-left">
+
+                                            <ion-icon name="book"></ion-icon>&nbsp;{{ det.coursename }}
+                                        </div>
+
+                                        <div class="sec-two-course-name-r float-right">
+                                            <strong>
+                                                &nbsp;{{det.final_fees  | number }}
+                                            </strong>
+                                            <s class="fees">&nbsp;&#8377;{{det.fees | number}}</s>&nbsp;&nbsp;
+                                            <span slot="end" class="badge badge-success"><small><b>BOOK NOW</b></small></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </ng-container>
+                        </div>
+
+
+                        <div class="bottom">
+                            <ion-buttons class="color-button ">
+                                <ion-button class="col-6 green rounded" (click)="presentModal()">Enquire Now
+                                </ion-button>
+                                <ion-button class="col-6 red rounded"
+                                            [routerLink]="['/knowmore',fd.inst_id,fd.inst_cid,fd.name,fd.address,fd.inst_slug]">
+                                    Know More
+                                </ion-button>
+                            </ion-buttons>
+                        </div>
+                    </ion-card>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </div>
+
+
+    <div class=" aboutsgni">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>SGNI</ion-card-title>
+                <ion-card-subtitle>Why we are best</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content class="ion-text-justify">
+                SGNI is a prominent institute that offers several intensive yet exciting programs/services for the last
+                many years. SGNI has continuously worked to upgrade its content and provide accurate guidance for the
+                students.
+                We not only connect students to provide services in every context but also work closely with institutes
+                to enable a piece of accurate information regarding every course choose by students.
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+
+    <div class="brand-ads   flip-horizontal-top">
+        <ion-slide class="ion-no-padding">
+            <ion-card class="ion-no-padding">
+                <img src="../../assets/banners/four.png" height="310" width="1210"/>
+            </ion-card>
+        </ion-slide>
+    </div>
+
+
+    <div class="headings wallet-card bootom-margin" routerLink="/wallet">
+        <h6>Your Wallet</h6>
+        <ion-card>
+            <div class="main">
+                <div class="money">
+                    <div class="col-8 one float-left"><strong> SGNI </strong>| Money</div>
+                    <div class="col-4 two float-right"><img src="../../assets/coin_logo.png"/></div>
+                </div>
+
+                <div class="amt">
+                    &#8377;{{this.walletamt[0] | number}}
+                </div>
+            </div>
+        </ion-card>
+    </div>
+
+
+    <!--bottom navbar-->
+
+    <div class="fixed-bottom">
+        <ion-tab-bar slot="bottom">
+            <ion-tab-button tab="home">
+                <ion-icon name="home" class="active"></ion-icon>
+                <ion-label>Home</ion-label>
+            </ion-tab-button>
+
+
+            <ion-tab-button routerLink="/order">
+                <ion-icon name="bag-handle"></ion-icon>
+                <ion-label>Orders</ion-label>
+            </ion-tab-button>
+
+
+            <ion-tab-button routerLink="/wallet">
+                <ion-icon name="wallet"></ion-icon>
+                <ion-label>Wallet</ion-label>
+            </ion-tab-button>
+
+
+            <ion-tab-button (click)="presentModal()">
+                <ion-icon name="help-circle"></ion-icon>
+                <ion-label>Help</ion-label>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </div>
 </ion-content>
+
+
+
+
