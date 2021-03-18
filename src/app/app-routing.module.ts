@@ -4,6 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
+    //component: HomePage
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
   },
   {
@@ -60,7 +61,7 @@ const routes: Routes = [
     loadChildren: () => import('./otpmodal/otpmodal.module').then( m => m.OtpmodalPageModule)
   },
   {
-    path: 'orderdetails/:coursename/:institutename/:instituteaddress/:fees/:rollno',
+    path: 'orderdetails/:coursename/:institutename/:instituteaddress/:fees/:finalfees/:orderid/:studentid/:wb/:orderdate/:batch/:markup',
     loadChildren: () => import('./pages/orderdetails/orderdetails.module').then( m => m.OrderdetailsPageModule)
   },
   {
@@ -78,6 +79,14 @@ const routes: Routes = [
   {
     path: 'myprofile',
     loadChildren: () => import('./pages/myprofile/myprofile.module').then( m => m.MyprofilePageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'terms',
+    loadChildren: () => import('./pages/terms/terms.module').then( m => m.TermsPageModule)
   },
 ];
 

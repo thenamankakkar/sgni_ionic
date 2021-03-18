@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-toolbar>
+        <h5 class="ion-padding ion-text-wrap">{{institutename}}</h5>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item>
+        <ion-label class="ion-text-wrap">{{instituteaddres}}</ion-label>
+    </ion-item>
+
+    <ion-card>
+
+        <ion-item>
+            <ion-label>Your Course is {{coursename}}</ion-label>
+        </ion-item>
+
+        <ion-card size-xs="12">
+            <ion-list [formGroup]="todo">
+                <ion-radio-group allow-empty-selection="true" name="radio-group"
+                                 (ionChange)="radioGroupChange($event)"  formControlName="duration">
+                    <ion-list-header>
+                        <ion-label>Select Course Duration</ion-label>
+                    </ion-list-header>
+
+                    <ion-item class="ion-text-wrap" *ngFor="let item of emptyarray" (ionFocus)="radioFocus()"
+                              (ionSelect)="radioSelect($event)" (ionBlur)="radioBlur()">
+
+
+                        <span class="black" >{{item.duration}} Months
+                            &#8377;{{item.final_fees  | number }}&nbsp;
+                            <s class="red  ">&#8377;{{item.fees | number}} </s>&nbsp;
+                            <ion-badge slot="end" color="warning">{{item.markup}} %off</ion-badge>
+                             </span>
+                        <ion-radio slot="start" value="{{item.fees_id}}" ></ion-radio>
+                    </ion-item>
+
+                </ion-radio-group>
+            </ion-list>
+        </ion-card>
+    </ion-card>
+
+    <ion-item  [formGroup]="todo">
+        <ion-label>Start Date</ion-label>
+        <ion-datetime displayFormat="DD MMMM  YY" max="2021" min="2021" placeholder="Select Date" [(ngModel)]="myDate"
+                      (ionChange)="onSelectChange(myDate)" formControlName="date"></ion-datetime>
+    </ion-item>
+
+    <ion-item  [formGroup]="todo">
+        <ion-label>Batch Time</ion-label>
+        <ion-select value="morning" (ionChange)="batchChange(batch)" [(ngModel)]="batch" formControlName="batch" >
+            <ion-select-option>Morning</ion-select-option>
+            <ion-select-option>Afternoon</ion-select-option>
+            <ion-select-option>Evening</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+    <ion-checkbox color="secondary" (ionChange)="addamount()"></ion-checkbox>
+       <span class="ion-padding-start">Add Wallet Balance</span>
+        <span slot="end">&#8377;{{this.walletamount[0] | number}}</span>
+    </ion-item>
+
+    <div class="ion-padding">
+        <ion-button class="pay-btn text-center" type="submit" expand="full" (click)="payatcenter()"  [disabled]="!todo.valid">
+            Pay At Center
+        </ion-button>
+    </div>
+
+</ion-content>

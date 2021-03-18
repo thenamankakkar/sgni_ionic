@@ -1,0 +1,98 @@
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+
+
+
+
+.location_title{
+  font-size: 10px;
+}
+#chooseyourcity{
+  font-size: 10px;
+}
+#swipeleft{
+  font-size: 10px;
+  text-align: right;
+}
+.bottom-nav{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  ion-button {
+    text-transform: capitalize;
+    font-weight: 300;
+    background: #628cff;
+    border-radius: 7px;
+    box-shadow: none;
+  }
+
+  ion-icon {
+    margin-right: 5px;
+    color: #86979f;
+  }
+}
+.active {
+
+  color: #628cff;
+
+}
+
+
+/*--------*/
+ion-title {
+  font-weight: 600;
+}
+
+ion-card {
+  width: 100%;
+  height: 160px;
+  box-shadow: none;
+  border-radius: 12px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    transform: scale(1.1, 1.1) rotate(1deg);
+    transition: 600ms all ease-in-out;
+  }
+}
+
+.swiper-slide-active {
+  transform: scale(1.05, 1.05);
+
+  ion-card {
+    img {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+.swiper-slide {
+  transition: 400ms all ease-in-out;
+}
+
+.class{
+  height: 100px;
+}
+.img img{
+  border-radius: 80%;
+}
+.img{
+  height: auto;
+}
+#discount{
+  height: auto;
+  width: auto;
+}
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  .card {
+    display: inline-block;
+  }
+}

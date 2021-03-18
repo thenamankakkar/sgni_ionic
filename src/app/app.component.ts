@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {AfterViewInit, Component, DoCheck, NgZone, OnInit, QueryList, ViewChildren} from '@angular/core';
 
 import {AlertController, IonRouterOutlet, NavController, Platform} from '@ionic/angular';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {Storage} from '@ionic/storage';
 import {LoginService} from './services/login.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Plugins,} from '@capacitor/core';
+import {App, Plugins,} from '@capacitor/core';
 
 const {Share} = Plugins;
 
@@ -15,11 +15,16 @@ const {Share} = Plugins;
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,AfterViewInit,DoCheck {
+    async ngDoCheck() {
+        //this.mycode = await this.storage.get('scode');
+    }
+    async ngAfterViewInit() {
+        this.mycode = await this.storage.get('scode');
+    }
 
 
     async ngOnInit() {
-        this.mycode = await this.storage.get('scode');
     }
 
     backButtonSubscription;
@@ -105,7 +110,7 @@ export class AppComponent implements OnInit {
     }
 
     terms() {
-        window.open('https://sgni.in/terms/', '_system', 'location=yes');
+        this.router.navigateByUrl("/terms");
     }
 
     instagram() {
@@ -154,5 +159,17 @@ export class AppComponent implements OnInit {
 
     }
 
+    async invite() {
+        await Share.share({
+            title: 'Install The SGNI App',
+            text: 'Login with my referal code you will get discount money' + this.mycode,
+           // url: 'https://play.google.com/store/apps/details?id=vinfo.tech.sgni',
+            dialogTitle: 'Share with buddies'
+        });
 
+    }
+
+    async didopen() {
+        this.mycode = await this.storage.get('scode');
+    }
 }

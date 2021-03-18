@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Wallet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-item>
+    <ion-header>
+      <ion-icon name="wallet"></ion-icon>
+      Amount in Wallet
+    </ion-header>
+    <ion-card-content>
+      <ion-header>
+        &#8377;{{this.result[0] | number}}
+      </ion-header>
+    </ion-card-content>
+  </ion-item>
+</ion-card>
+</ion-content>

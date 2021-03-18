@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <!--  <ion-button color="primary">
+                <ion-icon slot="icon-only" name="arrow-back">
+                </ion-icon>
+              </ion-button>-->
+
+            <ion-title>Login</ion-title>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+      <div id="header">
+        <img src="../../../assets/icon/sgnilogo.png" />
+      </div>
+
+      <form [formGroup]="todo" (ngSubmit)="logForm()">
+        <ion-item>
+          <ion-label position="floating">Phone Number *</ion-label>
+          <ion-input type="tel" maxlength="10" required  formControlName="phone" ></ion-input>
+          <ion-icon name="call-outline" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Referal Code is Optional </ion-label>
+          <ion-input type="tel" maxlength="5"  formControlName="ref"></ion-input>
+          <ion-icon name="link-outline" slot="end"></ion-icon>
+        </ion-item>
+        <ion-button class="main-button" type="submit" expand="block" [disabled]="!todo.valid">Login</ion-button>
+      </form>
+      <p>By Login you agree <br> to our terms & conditions.</p>
+
+
+<!--<ion-button (click)="presentHalfModal()">button click</ion-button>-->
+
+
+
+</ion-content>

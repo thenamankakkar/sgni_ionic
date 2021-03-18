@@ -1,0 +1,174 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Order Details</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <!--  <ion-card>
+        <ion-title class="main">Course : {{coursename}}</ion-title>
+        <ion-header><ion-card>{{institutename}}</ion-card></ion-header>
+        <ion-card-content>
+          <ion-icon name="home-outline"></ion-icon>
+          {{instituteaddress}}
+        </ion-card-content>
+
+          <div class="ion-padding-start">
+            Fees : &#8377;{{fees | number}}
+          </div>
+
+          <div class="ion-padding-start">
+            Roll No: {{rollno}}
+          </div>
+
+      </ion-card>-->
+
+    <div class="image">
+        <img src="../../../assets/icon/sgnilogo.png" height="158" width="370"/>
+    </div>
+
+
+    <div class="text-center  font-weight-bold ion-text-uppercase ion-margin-top">
+        <ion-label>seat reservation slip</ion-label>
+    </div>
+
+
+    <div class=" ion-text-uppercase font-weight-bold ion-margin-top">
+        <div class="float-left">
+            <div class="text-left">sgni/ord/{{orderid}}</div>
+            <div class="text-left"> (your order #)</div>
+        </div>
+
+        <div class="text-right float-right">
+            student id : {{studentid}}
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <ion-row>
+        <ion-grid>
+            <ion-row>
+                <ion-col class="text-center text-uppercase ">
+                    <div class="bg-danger" style="color: white">
+                        Couse name
+                    </div>
+
+                    <div class="text-center text-uppercase bg-light">
+                        {{coursename}}
+                    </div>
+                </ion-col>
+                <ion-col class="text-center text-uppercase ">
+                    <div class="bg-danger" style="color:  white">
+                        Date
+                    </div>
+                    <div class="text-center text-uppercase bg-light">
+                        {{orderdate}}
+                    </div>
+                </ion-col>
+
+                <!-- <ion-col class="text-center text-uppercase ">
+                   <div class="bg-danger">
+                     Batch Time
+                   </div>
+                   <div class="text-center text-uppercase bg-light">
+                     {{batch}}
+                   </div>
+                 </ion-col>-->
+            </ion-row>
+        </ion-grid>
+    </ion-row>
+
+
+    <!--fees structure-->
+    <ion-row class="ion-margin-top text-capitalize">
+        <ion-grid>
+
+            <ion-row>
+                <ion-col class="text-center text-capitalize ">
+                    <div class=" text-left float-left">
+                        Course Fees rs.
+                    </div>
+
+                    <ion-col>
+                        <div class="float-right text-right">
+                            {{fees}}
+                        </div>
+                    </ion-col>
+
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col class="text-center text-capitalize ">
+                    <div class=" text-left float-left">
+                        Discount (10%) rs.
+                    </div>
+
+                    <ion-col>
+                        <div class="float-right text-right">
+                            {{discount}}
+                        </div>
+                    </ion-col>
+
+                </ion-col>
+            </ion-row>
+
+
+            <ion-row>
+                <ion-col class="text-center text-capitalize ">
+                    <div class=" text-left float-left">
+                        Wallet Rs.
+                    </div>
+
+                    <ion-col>
+                        <div class="float-right text-right">
+                            {{wb}}
+                        </div>
+                    </ion-col>
+
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col class="text-center text-capitalize ">
+                    <div class=" text-left float-left">
+                        Amount To pay rs.
+                    </div>
+
+                    <ion-col>
+                        <div class="float-right text-right">
+                            {{finalfees}}
+                        </div>
+                    </ion-col>
+
+                </ion-col>
+            </ion-row>
+
+        </ion-grid>
+    </ion-row>
+
+
+    <ion-grid class="ion-margin-top">
+        <ion-row class="ion-text-uppercase text-center font-weight-bold">
+            {{institutename}}
+        </ion-row>
+        <ion-row class="ion-text-capitalize text-center">
+            {{instituteaddress}}
+        </ion-row>
+    </ion-grid>
+
+    <ion-footer class="fixed-bottom">
+        <ion-col>
+            Vist : www.sgni.in
+        </ion-col>
+        <ion-col class="float-right">
+            Email : support@sgni.in
+        </ion-col>
+
+        <ion-col class="float-right">
+            Call : +91-7740066521
+        </ion-col>
+    </ion-footer>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>My Courses</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+       <!-- <div *ngFor="let record of final"  class="card">
+            <ion-card>
+                <div class="main">
+                <div class="first col-6 red">Order Id : {{ record.value[0]['orderid']}}</div>
+                    <div class="second col-6 green">Order Status : {{record.value[0]['order_status']}}</div>
+                </div>
+
+                <div class="main">
+                    <div class="first col-6 blue">Quantity : {{ record.value[0]['order_qty']}}</div>
+                    <div class="second col-6 red">Fee Status : {{record.value[0]['fee_status']}}</div>
+                </div>
+
+                <div class="main col-6 green">Total Fees : &#8377;{{ record.value[0]['order_total'] | number}}</div>
+                <div class="main col-12 orange">Order Date : {{ record.value[0]['order_date']}}</div>
+                <div class="main">
+                    <div class="second red" [routerLink]="['/orderdetails',  record.value[1]['course_name'],record.value[1]['inst_name'],record.value[1]['int_address'],record.value[1]['course_final_fees'],record.value[2]['roll_no']]">View Details<ion-icon name="arrow-redo-outline"></ion-icon></div>
+                </div>
+
+            </ion-card>
+        </div>-->
+    <div *ngFor="let record of final"  class="card">
+        <ion-card>
+            <div class="main">
+                <div class="first col-6 red">Order Id : {{ record[1][0]['orderid']}}</div>
+                <div class="second col-6 green">Order Status : {{ record[1][0]['order_status']}}</div>
+            </div>
+
+            <div class="main">
+                <div class="first col-6 blue">Quantity : {{  record[1][0]['order_qty']}}</div>
+                <div class="second col-6 red">Fee Status : {{record[1][0]['fee_status']}}</div>
+            </div>
+
+            <div class="main col-6 green">Total Fees : &#8377;{{  record[1][0]['order_total'] | number}}</div>
+            <div class="main col-12 orange">Order Date : {{  record[1][0]['order_date']}}</div>
+            <div class="main">
+                <div class="second red" [routerLink]="['/orderdetails',  record[1][1]['course_name'],record[1][1]['inst_name'],record[1][1]['int_address'],record[1][1]['course_fees'],record[1][1]['course_final_fees'],record[1][0]['orderid'],record[1][0]['studentid'],record[1][0]['wallet_debit_amount'],record[1][0]['order_date'],record[1][1]['course_batch'],record[1][1]['course_markup']]">View Details<ion-icon name="arrow-redo-outline"></ion-icon></div>
+            </div>
+        </ion-card>
+    </div>
+
+
+</ion-content>

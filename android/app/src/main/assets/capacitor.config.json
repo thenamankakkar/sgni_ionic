@@ -1,0 +1,14 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "sgni",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0,
+      "launchAutoHide": true
+    }
+  },
+  "cordova": {}
+}

@@ -1,5 +1,5 @@
 <ion-app>
-    <ion-menu menuId="main-menu" contentId="main">
+    <ion-menu menuId="main-menu" contentId="main" (ionDidOpen)="didopen()">
         <ion-content>
             <div class="menu-header-bg"></div>
 
@@ -57,6 +57,15 @@
                 <ion-item (click)="shareapp()">
                     <ion-icon name="share-social-outline"></ion-icon>
                     Share App
+                </ion-item>
+
+                <ion-item routerLink="/about">
+                    <ion-icon name="people-outline"></ion-icon>
+                    About SGNI
+                </ion-item>
+                <ion-item (click)="invite()">
+                    <ion-icon name="person-add-outline"></ion-icon>
+                    Invite & Earn
                 </ion-item>
 
                 <ion-item (click)="signout()">

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <h5 class="ion-padding ion-text-wrap ion-text-capitalize">{{this.institutename}}</h5>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-padding-top">
+  <ion-slides [options]="option" pager="true">
+
+    <ion-slide *ngFor="let data of result2">
+      <ion-col>
+        <ion-card>
+        <img src="https://sgni.in/institute/{{data.pic}}">
+        </ion-card>
+      </ion-col>
+    </ion-slide>
+
+
+  </ion-slides>
+  </div>
+
+
+
+
+  <ion-card *ngFor="let response of result">
+  <ion-item>
+    <ion-label>
+      <h3>{{response.coursename}}</h3>
+      <p><s>&#8377;{{response.fees | number}}</s></p>
+      <p>&#8377;{{response.final_fees | number}}</p>
+
+
+    </ion-label>
+
+    <ion-buttons>
+      <ion-button fill="outline" expand="block" color="success" [routerLink]="['/booknow', courseid,response.coursename,institutename,instituteaddress,instituteid,instituteslug]">
+        Book Now
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+  </ion-card>
+
+</ion-content>

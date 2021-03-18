@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Enter OTP you received</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="todo" (ngSubmit)="logForm()">
+        <ion-card class="ion-padding">
+
+
+        <ion-item>
+            <ion-label position="floating">Enter OTP</ion-label>
+            <ion-input type="tel" maxlength="4" required  formControlName="otp"></ion-input>
+            <ion-icon name="call-outline" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-button class="main-button" type="submit" expand="block" shape="round" [disabled]="!todo.valid">Login</ion-button>
+        </ion-card>
+    </form>
+</ion-content>

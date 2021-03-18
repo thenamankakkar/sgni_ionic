@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-label color="danger" (click)="dismiss()">
+                <ion-icon name="backspace-outline"></ion-icon>
+                dismiss
+            </ion-label>
+        </ion-buttons>
+        <ion-title>Enquire Now</ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <div class="main-div">
+        <ion-card>
+            <form [formGroup]="todo" (ngSubmit)="logForm()">
+                <ion-item>
+                    <ion-label position="floating">Phone Number *</ion-label>
+                    <ion-input type="tel" maxlength="10" required formControlName="title"></ion-input>
+                    <ion-icon name="call-outline" slot="end"></ion-icon>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>Select Time</ion-label>
+                    <ion-select value="anytime" formControlName="anytime">
+                        <ion-select-option value="anytime">Anytime</ion-select-option>
+                        <ion-select-option value="9-12">9-12</ion-select-option>
+                        <ion-select-option value="12-3">12-3</ion-select-option>
+                        <ion-select-option value="3-6">3-6</ion-select-option>
+                    </ion-select>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating" class="requirement">Specify you requirement if any? (optional)
+                    </ion-label>
+                    <ion-input type="text" maxlength="50" formControlName="description"></ion-input>
+                    <ion-icon name="link-outline" slot="end"></ion-icon>
+                </ion-item>
+                <ion-button class="main-button" type="submit" expand="block" shape="round" [disabled]="!todo.valid">Enquire Now</ion-button>
+            </form>
+        </ion-card>
+    </div>
+
+
+</ion-content>
